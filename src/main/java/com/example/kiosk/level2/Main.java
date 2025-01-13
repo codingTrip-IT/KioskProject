@@ -37,13 +37,11 @@ public class Main {
 
             // 입력된 숫자에 따른 처리
             // 프로그램을 종료
-                if(inputNumber==0){
-                    System.out.println("프로그램을 종료합니다.");
-                    break;
-                }
-
             // 선택한 메뉴 : 이름, 가격, 설명
                 switch (inputNumber){
+                    case 0:
+                        System.out.println("프로그램을 종료합니다.");
+                        return;
                     case 1:
                         System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
                         break;

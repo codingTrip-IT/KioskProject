@@ -8,9 +8,7 @@ public class Main {
         // Scanner 선언
         Scanner sc = new Scanner(System.in);
 
-        boolean isOkay = true;
-
-        while (isOkay){
+        while (true){
             System.out.println("[ SHAKESHACK MENU ]\n" +
                     "1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거\n" +
                     "2. SmokeShack    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거\n" +
@@ -24,8 +22,7 @@ public class Main {
             switch (inputNumber){
                 case 0:
                     System.out.println("프로그램을 종료합니다.");
-                    isOkay = false;
-                    break;
+                    return;
                 case 1:
                     System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
                     break;
