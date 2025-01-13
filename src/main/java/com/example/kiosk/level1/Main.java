@@ -5,6 +5,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        // Scanner 선언
         Scanner sc = new Scanner(System.in);
 
         while (true){
@@ -15,7 +16,13 @@ public class Main {
                     "4. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거\n" +
                     "0. 종료      | 종료");
 
+            // 숫자를 입력 받기
             int inputNumber = sc.nextInt();
+
+            if(inputNumber==0){
+                System.out.println("프로그램을 종료합니다.");
+                break;
+            }
 
             switch (inputNumber){
                 case 1:
@@ -30,11 +37,8 @@ public class Main {
                 case 4:
                     System.out.println("4. Hamburger     | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거");
                     break;
-            }
-
-            if(inputNumber==0){
-                System.out.println("프로그램을 종료합니다.");
-                break;
+                default:
+                    throw new IllegalArgumentException("보기 중에 없는 번호이거나 숫자가 아닙니다. 다시 입력해주세요.");
             }
         }
 
