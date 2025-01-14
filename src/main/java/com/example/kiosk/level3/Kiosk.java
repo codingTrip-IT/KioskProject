@@ -20,8 +20,8 @@ public class Kiosk {
                  System.out.println();
                 // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
                 for (MenuItem item : menuItems) {
-    //                System.out.println((menuItems.indexOf(item)+1)+". "+item.getName() +" | W "+item.getPrice()+" | "+item.getInfo());
-                    System.out.println((menuItems.indexOf(item)+1)+". "+item.getName());
+                    System.out.println((menuItems.indexOf(item)+1)+". "+item.getName() +" | W "+item.getPrice()+" | "+item.getInfo());
+//                    System.out.println((menuItems.indexOf(item)+1)+". "+item.getName());
                 }
                 System.out.println("0. 종료      | 종료");
 

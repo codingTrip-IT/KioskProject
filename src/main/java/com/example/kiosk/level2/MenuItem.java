@@ -2,10 +2,10 @@ package com.example.kiosk.level2;
 
 public class MenuItem {
     private String name;
-    private double price;
+    private Double price;
     private String info;
 
-    public MenuItem(String name, double price, String info) {
+    public MenuItem(String name, Double price, String info) {
         this.name = name;
         this.price = price;
         this.info = info;
