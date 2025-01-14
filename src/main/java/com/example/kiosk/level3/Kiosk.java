@@ -5,7 +5,7 @@ import java.util.*;
 public class Kiosk {
 
     // List 선언 및 초기화
-    private List<MenuItem> menuItems = new ArrayList<>();
+    private final List<MenuItem> menuItems;
 
     public Kiosk(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
