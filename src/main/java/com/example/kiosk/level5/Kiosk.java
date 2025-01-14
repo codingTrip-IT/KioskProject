@@ -1,6 +1,8 @@
-package com.example.kiosk.level4;
+package com.example.kiosk.level5;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Kiosk {
 
@@ -63,6 +65,7 @@ public class Kiosk {
                     case 1:
                          menuItem = menuItems.get(0);
                          System.out.printf("1. %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
+//                        System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
                         break;
                     case 2:
                         menuItem = menuItems.get(1);
