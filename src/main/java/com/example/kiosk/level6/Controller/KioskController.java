@@ -45,6 +45,7 @@ public class KioskController {
                     return;
                 } else if (chooseMainMenu == 4) {
                     if(cart.getCartList().size()!=0){
+//                        cart.hasCart() {return list.size() > 0}
                         kiosk.orderMenu(cart, cartList);
                         int chooseOrder = sc.nextInt();
 
@@ -90,7 +91,7 @@ public class KioskController {
                         sc.nextLine();
                     } else {
                         MenuItem menuItem = menuItems.get(chooseMenuItems - 1);
-                        cart.showCart(menuItem);
+                        kiosk.showCart(menuItem);
 
                         // 숫자를 입력 받기
                         int chooseCart = sc.nextInt();

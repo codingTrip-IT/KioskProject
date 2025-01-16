@@ -22,6 +22,12 @@ public class KioskView {
         }
     }
 
+    public void showCart(MenuItem menuItem){
+        System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
+        System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
+        System.out.println("1. 확인       2. 취소");
+    }
+
     public void orderMenu(Cart cart, List<MenuItem> cartList) {
         System.out.println("아래와 같이 주문 하시겠습니까?\n");
         System.out.println("[ Orders ]");
