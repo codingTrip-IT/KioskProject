@@ -30,7 +30,7 @@ public class Kiosk {
             }
             System.out.println("0. 종료      | 종료\n");
 
-            if(!cart.getCartList().isEmpty()){
+            if(cart.getCartList().size()!=0){
                 System.out.println("[ ORDER MENU ]");
                 System.out.println("4. Orders");
                 System.out.println("5. Cancel");
@@ -41,17 +41,17 @@ public class Kiosk {
                 System.out.println("inputFirstNumber");
                 int inputFirstNumber = sc.nextInt();
 
-                if (inputFirstNumber < 0 || inputFirstNumber >5 ){
+                List<MenuItem> cartList = cart.getCartList();;
+                if (inputFirstNumber < 0 || inputFirstNumber > 5) {
                     throw new IllegalStateException("보기 중에 없는 번호입니다. 다시 입력해주세요.");
                 } else if (inputFirstNumber == 0) {
                     System.out.println("프로그램을 종료합니다.");
                     return;
-                } else if (inputFirstNumber == 4){
+                } else if (inputFirstNumber == 4) {
                     System.out.println("아래와 같이 주문 하시겠습니까?\n");
                     System.out.println("[ Orders ]");
-                    List<MenuItem> cartList = cart.getCartList();
                     for (MenuItem c : cartList) {
-                        System.out.printf("%s | W %.1f | %s%n", c.getName(),c.getPrice(),c.getInfo());
+                        System.out.printf("%s | W %.1f | %s%n", c.getName(), c.getPrice(), c.getInfo());
                     }
                     System.out.println("\n[ Total ]");
                     System.out.printf("W %.1f%n", cart.totalPriceCal());
@@ -60,14 +60,16 @@ public class Kiosk {
                     System.out.println("inputThirdNumber");
                     int inputThirdNumber = sc.nextInt();
 
-                    if (inputThirdNumber == 1){
-                        System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.",cart.totalPriceCal());
+                    if (inputThirdNumber == 1) {
+                        System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.%n", cart.totalPriceCal());
                         cartList.removeAll(cartList);
-                    } else if (inputThirdNumber ==2){
-                        break;
+                    } else if (inputThirdNumber == 2) {
+                        sc.nextLine();
                     }
-
-                } else if (inputFirstNumber > 0 && inputFirstNumber < 4 ){
+                } else if (inputFirstNumber == 5) {
+                    System.out.println("진행중인 주문이 취소되었습니다. 장바구니가 초기화 됩니다.");
+                    cartList.removeAll(cartList);
+                } else if (inputFirstNumber > 0 && inputFirstNumber < 4) {
                     // 입력 받은 숫자가 올바르다면 인덱스로 활용하여 List에 접근하기
                     // List<Menu>에 인덱스로 접근하면 Menu만 추출할 수 있겠죠?
                     Menu menu = menuList.get(inputFirstNumber - 1);
