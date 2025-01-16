@@ -1,7 +1,6 @@
 package com.example.kiosk.level6;
 
 import com.example.kiosk.level6.Controller.KioskController;
-import com.example.kiosk.level6.View.KioskView;
 import com.example.kiosk.level6.model.Menu;
 import com.example.kiosk.level6.model.MenuItem;
 

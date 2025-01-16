@@ -11,6 +11,7 @@ public class Cart {
         return cartList;
     }
 
+    //컨트롤러로 넣기
     public void showCart(MenuItem menuItem){
         System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
@@ -24,5 +25,13 @@ public class Cart {
         } else if (number == 2){
             System.out.println("아래 메뉴판을 보시고 메뉴를 골라 입력해주세요.");
         }
+    }
+
+    public double totalPriceCal(List<MenuItem> cartList){
+        double totalPrice = 0.0;
+        for (MenuItem c : cartList) {
+            totalPrice += c.getPrice();
+        }
+        return totalPrice;
     }
 }

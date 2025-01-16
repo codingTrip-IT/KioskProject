@@ -4,14 +4,9 @@ import com.example.kiosk.level6.model.Cart;
 import com.example.kiosk.level6.model.Menu;
 import com.example.kiosk.level6.model.MenuItem;
 
-import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 
 public class KioskView {
-
-    Scanner sc = new Scanner(System.in);
-    Cart cart;
 
     public void showMainMenu(List<Menu> menuList, Cart cart) {
         System.out.println("[ MAIN MENU ]");
@@ -27,33 +22,20 @@ public class KioskView {
         }
     }
 
-    public void orderMenu(List<MenuItem> cartList) {
+    public void orderMenu(Cart cart, List<MenuItem> cartList) {
         System.out.println("아래와 같이 주문 하시겠습니까?\n");
         System.out.println("[ Orders ]");
         for (MenuItem c : cartList) {
             System.out.printf("%s | W %.1f | %s%n", c.getName(), c.getPrice(), c.getInfo());
         }
         System.out.println("\n[ Total ]");
-        System.out.printf("W %.1f%n",totalPriceCal(cartList));
+        System.out.printf("W %.1f%n",cart.totalPriceCal(cartList));
 
         System.out.println("\n1. 주문       2. 메뉴판");
-        int inputThirdNumber = sc.nextInt();
 
-        if (inputThirdNumber == 1) {
-            System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.%n", totalPriceCal(cartList));
-            cartList.removeAll(cartList);
-        } else if (inputThirdNumber == 2) {
-            sc.nextLine();
-        }
     }
 
-    public double totalPriceCal(List<MenuItem> cartList){
-        double totalPrice = 0.0;
-        for (MenuItem c : cartList) {
-            totalPrice += c.getPrice();
-        }
-        return totalPrice;
-    }
+
 }
 
 
