@@ -30,7 +30,6 @@ public class Kiosk {
 
             try {
                 // 숫자를 입력 받기
-                System.out.println("inputFirstNumber");
                 int inputFirstNumber = sc.nextInt();
 
                 if (inputFirstNumber == 0) {
@@ -54,7 +53,6 @@ public class Kiosk {
                 // 입력 받은 숫자가 올바르다면 인덱스로 활용해서 Menu가 가지고 있는 List<MenuItem>에 접근하기
                 // menu.getMenuItems().get(i); 같은 형식으로 하나씩 들어가서 얻어와야 합니다.
                 // 숫자를 입력 받기
-                System.out.println("inputSecondNumber");
                 int inputSecondNumber = sc.nextInt();
 
                 MenuItem menuItem;
