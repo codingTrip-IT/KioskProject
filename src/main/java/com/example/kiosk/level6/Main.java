@@ -1,5 +1,10 @@
 package com.example.kiosk.level6;
 
+import com.example.kiosk.level6.Controller.KioskController;
+import com.example.kiosk.level6.View.KioskView;
+import com.example.kiosk.level6.model.Menu;
+import com.example.kiosk.level6.model.MenuItem;
+
 import java.util.List;
 
 public class Main {
@@ -20,7 +25,7 @@ public class Main {
         burgers.setMenuItems(List.of(shackBurger,SmokeShack,Cheeseburger,Hamburger));
 
         // Kiosk 객체 생성
-        Kiosk kiosk = new Kiosk(menuList);
+        KioskController kiosk = new KioskController(menuList);
 
         // Kiosk 내 시작하는 함수 호출
         kiosk.start();

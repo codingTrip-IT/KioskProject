@@ -1,4 +1,4 @@
-package com.example.kiosk.level6;
+package com.example.kiosk.level6.model;
 
 import java.util.List;
 
@@ -27,6 +27,7 @@ public class Menu {
             int index = menuItems.indexOf(menuItem)+1;
             System.out.printf("%d. %s | W %.1f | %s%n",index, menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
         }
+        System.out.println("0. 뒤로가기");
     }
 
     // List를 리턴하는 함수

@@ -1,14 +1,19 @@
-package com.example.kiosk.level6;
+package com.example.kiosk.level6.Controller;
+
+import com.example.kiosk.level6.View.KioskView;
+import com.example.kiosk.level6.model.Cart;
+import com.example.kiosk.level6.model.Menu;
+import com.example.kiosk.level6.model.MenuItem;
 
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Kiosk {
+public class KioskController {
 
     private final List<Menu> menuList;
 
-    public Kiosk(List<Menu> menuList) {
+    public KioskController(List<Menu> menuList) {
         this.menuList = menuList;
     }
 
@@ -17,55 +22,28 @@ public class Kiosk {
         // Scanner 선언
         Scanner sc = new Scanner(System.in);
 
+        KioskView kiosk = new KioskView();
         Cart cart = new Cart();
+        List<MenuItem> cartList = cart.getCartList();
 
         // 반복문 시작
         while (true) {
             System.out.println();
 
             // List와 Menu 클래스 활용하여 상위 카테고리 메뉴 출력
-            System.out.println("[ MAIN MENU ]");
-            for (Menu menu : menuList) {
-                System.out.println((menuList.indexOf(menu) + 1) + ". " + menu.showCategory());
-            }
-            System.out.println("0. 종료      | 종료\n");
-
-            if(cart.getCartList().size()!=0){
-                System.out.println("[ ORDER MENU ]");
-                System.out.println("4. Orders");
-                System.out.println("5. Cancel");
-            }
+            kiosk.showMainMenu(menuList, cart);
 
             try {
                 // 숫자를 입력 받기
-                System.out.println("inputFirstNumber");
                 int inputFirstNumber = sc.nextInt();
 
-                List<MenuItem> cartList = cart.getCartList();;
                 if (inputFirstNumber < 0 || inputFirstNumber > 5) {
                     throw new IllegalStateException("보기 중에 없는 번호입니다. 다시 입력해주세요.");
                 } else if (inputFirstNumber == 0) {
                     System.out.println("프로그램을 종료합니다.");
                     return;
                 } else if (inputFirstNumber == 4) {
-                    System.out.println("아래와 같이 주문 하시겠습니까?\n");
-                    System.out.println("[ Orders ]");
-                    for (MenuItem c : cartList) {
-                        System.out.printf("%s | W %.1f | %s%n", c.getName(), c.getPrice(), c.getInfo());
-                    }
-                    System.out.println("\n[ Total ]");
-                    System.out.printf("W %.1f%n", cart.totalPriceCal());
-
-                    System.out.println("\n1. 주문       2. 메뉴판");
-                    System.out.println("inputThirdNumber");
-                    int inputThirdNumber = sc.nextInt();
-
-                    if (inputThirdNumber == 1) {
-                        System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.%n", cart.totalPriceCal());
-                        cartList.removeAll(cartList);
-                    } else if (inputThirdNumber == 2) {
-                        sc.nextLine();
-                    }
+                    kiosk.orderMenu(cartList);
                 } else if (inputFirstNumber == 5) {
                     System.out.println("진행중인 주문이 취소되었습니다. 장바구니가 초기화 됩니다.");
                     cartList.removeAll(cartList);
@@ -79,21 +57,16 @@ public class Kiosk {
                     // Menu가 가진 List<MenuItem>을 반복문을 활용하여 햄버거 메뉴 출력
                     menu.showMenuItem();
 
-                    System.out.println("0. 뒤로가기");
-
                     // 숫자 입력 받기
                     // 입력 받은 숫자가 올바르다면 인덱스로 활용해서 Menu가 가지고 있는 List<MenuItem>에 접근하기
                     // menu.getMenuItems().get(i); 같은 형식으로 하나씩 들어가서 얻어와야 합니다.
                     // 숫자를 입력 받기
-                    System.out.println("inputSecondNumber");
                     int inputSecondNumber = sc.nextInt();
 
                     MenuItem menuItem = menuItems.get(inputSecondNumber - 1);
-
                     cart.showCart(menuItem);
 
                     // 숫자를 입력 받기
-                    System.out.println("inputSecondNumber");
                     int inputThirdNumber = sc.nextInt();
                     cart.addCart(menuItem, inputThirdNumber);
                 }
