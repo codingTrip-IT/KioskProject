@@ -62,23 +62,19 @@ public class Kiosk {
                         break;
                     case 1:
                          menuItem = menuItems.get(inputSecondNumber-1);
-                         System.out.printf("1. %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
-                         System.out.println("주문이 왼료되었습니다.");
+                         System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
                         break;
                     case 2:
                         menuItem = menuItems.get(inputSecondNumber-1);
-                        System.out.printf("2. %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
-                        System.out.println("주문이 왼료되었습니다.");
+                        System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
                         break;
                     case 3:
                         menuItem = menuItems.get(inputSecondNumber-1);
-                        System.out.printf("3. %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
-                        System.out.println("주문이 왼료되었습니다.");
+                        System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
                         break;
                     case 4:
                         menuItem = menuItems.get(inputSecondNumber-1);
-                        System.out.printf("4. %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
-                        System.out.println("주문이 왼료되었습니다.");
+                        System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(),menuItem.getPrice(),menuItem.getInfo());
                         break;
                     default:
                         throw new IllegalArgumentException("보기 중에 없는 번호이거나 숫자가 아닙니다. 다시 입력해주세요.");

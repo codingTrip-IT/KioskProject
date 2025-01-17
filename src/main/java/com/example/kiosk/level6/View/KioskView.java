@@ -25,7 +25,7 @@ public class KioskView {
 
     // showMainMenu : 메인 메뉴를 출력하는 함수
     public void showMainMenu(List<Menu> menuList, Cart cart) {
-        System.out.println("[ MAIN MENU ]");
+        System.out.println("\n[ MAIN MENU ]");
         for (Menu menu : menuList) {
             System.out.println((menuList.indexOf(menu) + 1) + ". " + menu.showCategory());
         }
@@ -65,7 +65,7 @@ public class KioskView {
         System.out.println("1. 국가유공자 : 10% \n"+
                 "2. 군인     :  5%\n" +
                 "3. 학생     :  3%\n" +
-                "4. 일반     :  0%\n");
+                "4. 일반     :  0%");
     }
 
     // userDiscount : 사용자의 할인율에 따라 총 합계를 계산해서 출력하는 함수
