@@ -9,12 +9,15 @@ import java.util.stream.Stream;
 
 public class Cart {
 
+    // 장바구니 리스트 선언
     private final List<MenuItem> cartList = new ArrayList<>();
 
+    // 장바구니 리스트를 반환하는 함수(getter)
     public List<MenuItem> getCartList() {
         return cartList;
     }
 
+    // addCart : 장바구니에 메뉴 아이템을 추가하는 함수
     public void addCart(MenuItem menuItem, int number){
         if(number == 1){
             cartList.add(menuItem);
@@ -24,6 +27,7 @@ public class Cart {
         }
     }
 
+    // showCartList : 장바구니 목록을 출력하는 함수
     public void showCartList(List<MenuItem> cartList){
         System.out.println("장바구니 목록");
         for (MenuItem c : cartList) {
@@ -31,6 +35,7 @@ public class Cart {
         }
     }
 
+    //removeMenuItem : 장바구니 리스트에서 선택한 번호의 메뉴 아이템을 삭제하는 함수
     public void removeMenuItem(int chooseMenuItemNumber, List<MenuItem> cartList) {
         //stream 활용 전 코드 작성 - 주석처리
 //        for (int i = 0 ;i<cartList.size();i++) {
@@ -50,7 +55,7 @@ public class Cart {
                 });
     }
 
-//    public double totalPriceCal(List<MenuItem> cartList){
+    // totalPriceCal : 장바구니의 총합계를 계산하는 함수
     public double totalPriceCal(){
             double totalPrice = 0.0;
             for (MenuItem c : cartList) {

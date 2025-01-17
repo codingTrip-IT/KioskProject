@@ -4,8 +4,8 @@ package com.example.kiosk.level6.model;
 // 구조에 맞게 함수를 선언해놓고 가져다 사용하세요.
 
 public class MenuItem {
-    private String name;
-    private Double price;
+    private String name;  // 메뉴 아이템명
+    private Double price; // 가격
     private String info;
 
     public MenuItem(String name, Double price, String info) {

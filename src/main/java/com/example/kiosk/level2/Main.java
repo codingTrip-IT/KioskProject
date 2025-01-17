@@ -12,6 +12,7 @@ public class Main {
         // Scanner 선언
         Scanner sc = new Scanner(System.in);
 
+        // 반복문 시작
         while (true){
             System.out.println();
             // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력

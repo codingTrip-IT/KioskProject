@@ -8,6 +8,7 @@ public class Main {
         // Scanner 선언
         Scanner sc = new Scanner(System.in);
 
+        // 반복문 시작
         while (true){
             // 메뉴 아이템 출력
             System.out.println("[ SHAKESHACK MENU ]\n" +

@@ -7,8 +7,8 @@ public enum User {
     GENERAL(4,0);
 
     //값을 저장할 필드(인스턴스 변수)
-    private final int value;
-    private final double discountRate;
+    private final int value; //순서
+    private final double discountRate; //할인율
 
     //생성자
     User(int value, double discountRate) {
