@@ -60,8 +60,13 @@ public class KioskController {
                     }
                 } else if (chooseMainMenu == 5) {
                     if(!cart.getCartList().isEmpty()){
-                        System.out.println("진행중인 주문이 취소되었습니다. 장바구니가 초기화 됩니다.");
-                        cartList.removeAll(cartList);
+//                        System.out.println("진행중인 주문이 취소되었습니다. 장바구니가 초기화 됩니다.");
+//                        cartList.removeAll(cartList);
+                        cart.showCartList(cartList);
+                        System.out.println("삭제할 메뉴 아이템을 선택하세요.");
+                        int chooseMenuItemNumber = kiosk.chooseNumber();
+                        cart.removeMenuItem(chooseMenuItemNumber,cartList);
+                        cart.showCartList(cartList);
                     } else {
                         System.out.println("보기 중에 없는 번호입니다. 다시 입력해주세요.");
                         kiosk.nextLine();
