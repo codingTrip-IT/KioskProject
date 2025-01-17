@@ -41,14 +41,15 @@ public class KioskController {
                     return;
                 } else if (chooseMainMenu == 4) {
                     if(!cart.getCartList().isEmpty()){
-//                    if(cart.getCartList().size()!=0){
                         kiosk.orderMenu(cart, cartList);
 
                         // 숫자 선택하기
                         int chooseOrder = kiosk.chooseNumber();
 
                         if (chooseOrder == 1) {
-                            System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.%n", cart.totalPriceCal());
+                            kiosk.showDiscount();
+                            int chooseUser = kiosk.chooseNumber();
+                            kiosk.userDiscount(cart, chooseUser);
                             cartList.removeAll(cartList);
                         } else if (chooseOrder == 2) {
                             kiosk.nextLine();
