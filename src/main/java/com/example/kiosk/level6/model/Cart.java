@@ -20,7 +20,8 @@ public class Cart {
         }
     }
 
-    public double totalPriceCal(List<MenuItem> cartList){
+//    public double totalPriceCal(List<MenuItem> cartList){
+public double totalPriceCal(){
         double totalPrice = 0.0;
         for (MenuItem c : cartList) {
             totalPrice += c.getPrice();

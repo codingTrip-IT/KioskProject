@@ -5,8 +5,20 @@ import com.example.kiosk.level6.model.Menu;
 import com.example.kiosk.level6.model.MenuItem;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class KioskView {
+
+    // Scanner 선언
+    Scanner sc = new Scanner(System.in);
+
+    public int chooseNumber() {
+        return sc.nextInt();
+    }
+
+    public void nextLine(){
+        sc.nextLine();
+    }
 
     public void showMainMenu(List<Menu> menuList, Cart cart) {
         System.out.println("[ MAIN MENU ]");
@@ -35,10 +47,9 @@ public class KioskView {
             System.out.printf("%s | W %.1f | %s%n", c.getName(), c.getPrice(), c.getInfo());
         }
         System.out.println("\n[ Total ]");
-        System.out.printf("W %.1f%n",cart.totalPriceCal(cartList));
+        System.out.printf("W %.1f%n",cart.totalPriceCal());
 
         System.out.println("\n1. 주문       2. 메뉴판");
-
     }
 
 

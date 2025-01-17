@@ -7,7 +7,7 @@ import com.example.kiosk.level6.model.MenuItem;
 
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
+import org.apache.commons.lang3.ObjectUtils;
 
 public class KioskController {
 
@@ -18,9 +18,6 @@ public class KioskController {
     }
 
     public void start() {
-
-        // Scanner 선언
-        Scanner sc = new Scanner(System.in);
 
         KioskView kiosk = new KioskView();
         Cart cart = new Cart();
@@ -34,38 +31,39 @@ public class KioskController {
             kiosk.showMainMenu(menuList, cart);
 
             try {
-                // 숫자를 입력 받기
-                int chooseMainMenu = sc.nextInt();
+                // 숫자 선택하기
+                int chooseMainMenu = kiosk.chooseNumber();
 
                 if (chooseMainMenu < 0 || chooseMainMenu > 5) {
                     System.out.println("보기 중에 없는 번호입니다. 다시 입력해주세요.");
-                    sc.nextLine();
                 } else if (chooseMainMenu == 0) {
                     System.out.println("프로그램을 종료합니다.");
                     return;
                 } else if (chooseMainMenu == 4) {
-                    if(cart.getCartList().size()!=0){
-//                        cart.hasCart() {return list.size() > 0}
+                    if(!cart.getCartList().isEmpty()){
+//                    if(cart.getCartList().size()!=0){
                         kiosk.orderMenu(cart, cartList);
-                        int chooseOrder = sc.nextInt();
+
+                        // 숫자 선택하기
+                        int chooseOrder = kiosk.chooseNumber();
 
                         if (chooseOrder == 1) {
-                            System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.%n", cart.totalPriceCal(cartList));
+                            System.out.printf("주문이 완료되었습니다. 금액은 W %.1f 입니다.%n", cart.totalPriceCal());
                             cartList.removeAll(cartList);
                         } else if (chooseOrder == 2) {
-                            sc.nextLine();
+                            kiosk.nextLine();
                         }
                     } else {
                         System.out.println("보기 중에 없는 번호입니다. 다시 입력해주세요.");
-                        sc.nextLine();
+                        kiosk.nextLine();
                     }
                 } else if (chooseMainMenu == 5) {
-                    if(cart.getCartList().size()!=0){
+                    if(!cart.getCartList().isEmpty()){
                         System.out.println("진행중인 주문이 취소되었습니다. 장바구니가 초기화 됩니다.");
                         cartList.removeAll(cartList);
                     } else {
                         System.out.println("보기 중에 없는 번호입니다. 다시 입력해주세요.");
-                        sc.nextLine();
+                        kiosk.nextLine();
                     }
                 } else if (chooseMainMenu > 0 && chooseMainMenu < 4) {
                     // 입력 받은 숫자가 올바르다면 인덱스로 활용하여 List에 접근하기
@@ -73,9 +71,10 @@ public class KioskController {
                     Menu menu = menuList.get(chooseMainMenu - 1);
                     List<MenuItem> menuItems = menuList.get(chooseMainMenu - 1).getMenuItems();
 
-                    if (menuItems == null){
+                    if (ObjectUtils.isEmpty(menuItems)){
                         System.out.println("해당 메인 메뉴의 상세 메뉴가 없습니다.");
                         continue;
+//                        object utils -> empty인지 아닌지확인하는 메서드
                     } else {
                         System.out.println("[ " + menuList.get(chooseMainMenu - 1).showCategory().toUpperCase() + " MENU ]");
                         // Menu가 가진 List<MenuItem>을 반복문을 활용하여 햄버거 메뉴 출력
@@ -85,25 +84,29 @@ public class KioskController {
                     // 입력 받은 숫자가 올바르다면 인덱스로 활용해서 Menu가 가지고 있는 List<MenuItem>에 접근하기
                     // menu.getMenuItems().get(i); 같은 형식으로 하나씩 들어가서 얻어와야 합니다.
                     // 숫자를 입력 받기
-                    int chooseMenuItems = sc.nextInt();
+//                    int chooseMenuItems = sc.nextInt();
+                    int chooseMenuItems = kiosk.chooseNumber();
 
                     if (chooseMenuItems == 0){
-                        sc.nextLine();
+                        kiosk.nextLine();
                     } else {
                         MenuItem menuItem = menuItems.get(chooseMenuItems - 1);
                         kiosk.showCart(menuItem);
 
                         // 숫자를 입력 받기
-                        int chooseCart = sc.nextInt();
+//                        int chooseCart = sc.nextInt();
+                        int chooseCart = kiosk.chooseNumber();
                         cart.addCart(menuItem, chooseCart);
                     }
                 }
             } catch (InputMismatchException e) {
                 System.out.println("숫자가 아닌 값입니다. 다시 입력하세요.");
-                sc.nextLine();
+//                sc.nextLine();
+                kiosk.nextLine();
             } catch (IllegalArgumentException e) {
                 System.out.println("보기 중에 없는 번호입니다. 다시 입력해주세요.");
-                sc.nextLine();
+//                sc.nextLine();
+                kiosk.nextLine();
             }
         }
     }
