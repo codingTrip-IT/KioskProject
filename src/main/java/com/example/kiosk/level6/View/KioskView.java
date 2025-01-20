@@ -25,7 +25,7 @@ public class KioskView {
 
     // showMainMenu : 메인 메뉴를 출력하는 함수
     public void showMainMenu(List<Menu> menuList, Cart cart) {
-        System.out.println("\n[ MAIN MENU ]");
+        System.out.println("[ MAIN MENU ]");
         for (Menu menu : menuList) {
             System.out.println((menuList.indexOf(menu) + 1) + ". " + menu.showCategory());
         }
@@ -41,7 +41,9 @@ public class KioskView {
 
     // showCart : 장바구니 메뉴를 출력하는 함수
     public void showCart(MenuItem menuItem) {
-        System.out.printf("선택한 메뉴: %s | W %.1f | %s%n", menuItem.getName(), menuItem.getPrice(), menuItem.getInfo());
+        System.out.printf("선택한 메뉴: %s | W %.1f | %s\n\n", menuItem.getName(), menuItem.getPrice(), menuItem.getInfo());
+//        "SmokeShack | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"
+        System.out.println('"'+menuItem.getName()+ " | W "+menuItem.getPrice()+" | "+menuItem.getInfo()+'"');
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
         System.out.println("1. 확인       2. 취소");
     }
